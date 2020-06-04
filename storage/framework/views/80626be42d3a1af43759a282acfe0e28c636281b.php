@@ -31,14 +31,14 @@
                 width: 548px !important;
             }
             .about-us-desc{
-                font-size:22px;
+                font-size:18px;
                 margin-top:15px;
             }
         }
 
         @media (min-width: 1025px) and (max-width: 1280px) {
             .about-us-desc{
-                font-size:20px;
+                font-size:16px;
                 margin-top:15px;
             }
         }
@@ -95,8 +95,8 @@
 
 <?php $__env->startSection('main-content'); ?>
 
-    <div class="float-in show-on-scroll row" style="margin-top: 49px;">
-        <div class="s-title col-md-8 col-md-offset-2" style="padding-bottom: 20px;">
+    <div class="row" style="margin-top: 20px;">
+        <div class="s-title col-md-8 col-md-offset-2" style="padding-bottom: 10px;">
         About Us
         </div>
         <div class="col-md-10 col-sm-10 col-md-offset-1">

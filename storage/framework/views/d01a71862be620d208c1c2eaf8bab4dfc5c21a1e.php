@@ -27,9 +27,7 @@
                     <div style='margin-top: -18px;'>Terrydale Live</div>
                 </div>
                 <p class="c-content">Your interactive marketplace for commercial real estate transactions.</p>
-                <div>
-                    <button   class="btn contact modal_submit">Contact Now</button>
-                </div>
+                
             </div>
         </div>
     </div>
