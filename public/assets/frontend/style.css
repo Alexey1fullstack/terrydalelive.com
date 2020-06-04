@@ -15,6 +15,10 @@
     border-style: double;
 }
 
+.btn.focus, .btn:focus, .btn:hover {
+    color:#fff !important;
+}
+
 .card-name{
 	display:block;
 }
