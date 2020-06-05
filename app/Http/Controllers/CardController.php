@@ -104,6 +104,10 @@ class CardController extends Controller
         $card_id = $request['card_id'];
         unset($data['_token']);
         unset($data['card_id']);
+        if(isset($data['closed'])){
+            $data['updated_at']=$data['closed'];
+            unset($data['closed']);
+        }
         if(Card::where('id',$card_id)->update($data)){
             return response()->json(array('success'=>true));
         } else {

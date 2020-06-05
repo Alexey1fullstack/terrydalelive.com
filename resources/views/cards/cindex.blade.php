@@ -118,7 +118,7 @@
 
                                 <div class='form-group'>
                                     <label class="main-title">Description:</label>
-                                    <input type="text" class="form-control" name="description" placeholder="Enter Description">
+                                    <input type="text" class="form-control" maxlength="15" name="description" placeholder="Enter Description">
                                     <!-- <span class="form-text text-muted">Please enter Asking price</span> -->
                                 </div>
                             </div>

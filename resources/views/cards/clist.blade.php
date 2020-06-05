@@ -81,7 +81,7 @@
                         <tr>
                             <th title="Field #0">#</th>
                             <th title="Field #2">Icon</th>
-                            <th title="Field #1">Created Time</th>                            
+                            <th title="Field #1">Updated Time</th>                            
                             <th title="Field #3">Category</th>
                             <th title="Field #4">Type</th>
                             <th title="Field #5">City and State</th>
@@ -117,7 +117,7 @@
                                     <td>{{$row->value4}}</td>
                                     <td>{{$row->value5}}</td>
                                     <td>{{$row->description}}</td>
-                                    <td>
+                                    <td data-status ="{{$row->status}}" >
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-sm btn-outline-brand dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 @if($row->status == 0)
@@ -268,7 +268,7 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 ">
                                     <div class="form-group">
                                     <label class="main-title">Description:</label>
-                                    <input type="text" class="form-control" name="description" id="new_description" placeholder="Enter Description">
+                                    <input type="text" maxlength="15" class="form-control" name="description" id="new_description" placeholder="Enter Description">
                                     </div>
                                     <!-- <span class="form-text text-muted">Please enter Asking price</span> -->
                                 </div>
@@ -379,10 +379,16 @@
                                     </div>
                                     <!-- <span class="form-text text-muted">Please enter value5</span> -->
                                 </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 ">
+                                <div class="col-lg-6 col-md-6 col-sm-12 ">
                                     <div class="form-group">
                                     <label class="main-title">Description:</label>
-                                    <input type="text" class="form-control" name="description" id="description" placeholder="Enter Description">
+                                    <input type="text" maxlength="15" class="form-control" name="description" id="description" placeholder="Enter Description">
+                                    </div>
+                                    <!-- <span class="form-text text-muted">Please enter Asking price</span> -->
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12 ">
+                                    <div class="form-group closed-block ">
+                                    
                                     </div>
                                     <!-- <span class="form-text text-muted">Please enter Asking price</span> -->
                                 </div>
@@ -712,6 +718,10 @@
             let card_img = _this.closest('tr').find('td').eq(1).children().attr('data-card-img');
             let type = _this.closest('tr').find('td').eq(4).attr('data-type');
             let category = _this.closest('tr').find('td').eq(3).attr('data-category');
+            var closed = _this.closest('tr').find('td').eq(2).text();
+                 closed = closed.substr(6,4)+'-'+ closed.substr(0,2) +'-'+closed.substr(3,2);
+            let status = _this.closest('tr').find('td').eq(11).attr('data-status');
+            
             let value1 = _this.closest('tr').find('td').eq(5).text();
             let value2= _this.closest('tr').find('td').eq(6).text();
             let value3 = _this.closest('tr').find('td').eq(7).text();
@@ -728,6 +738,13 @@
             $('#value3').val(value3);
             $('#value4').val(value4);
             $('#value5').val(value5);
+            if(status ==1){
+                $('.closed-block').empty();
+                $('.closed-block').append("<label class='main-title'>Closed At:</label><input type='date' maxlength='15' class='form-control' name='closed' id='closed' placeholder='Select Date'>");
+                $('#closed').val(closed);
+            } else {
+                $('.closed-block').empty();
+            }            
             $('#description').val(description);
             $('#update_card_form').find('.card-icon2').eq(card_img/1-1).addClass('card-select');
             $("#update_card_form").modal('show');
