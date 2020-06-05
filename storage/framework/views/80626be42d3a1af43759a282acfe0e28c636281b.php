@@ -22,6 +22,10 @@
         .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus{
             outline: 0px auto -webkit-focus-ring-color; 
         }
+        
+        .head-title{
+            padding:18px;
+        }
 
         #loading_time{
             display: none;
@@ -31,8 +35,22 @@
                 width: 548px !important;
             }
             .about-us-desc{
-                font-size:18px;
-                margin-top:15px;
+                font-size: 22px;
+                display: block;
+                margin-top: 15px;
+                line-height: 21px;
+                padding-bottom: 150px;
+                color: white;
+            }
+
+            .hero {
+                min-height: 550px;
+                text-align: center;
+            }
+
+            .c-title {
+                font-size: 50px;
+                margin-top: 50px;
             }
         }
 
@@ -78,6 +96,39 @@
                 margin-top:15px;
             }
         }
+
+        @media (max-width: 481px){
+            .about-us-desc{
+                font-size:15px;
+                margin-top:15px;
+            }
+
+            .head-section{
+                min-height:800px;
+            }
+
+            .hero {
+                min-height: 550px;
+                text-align: center;
+            }
+
+            .head-title{
+                font-size:30px;
+            }
+
+            .c-title {
+                font-size: 50px;
+                margin-top: 0px;
+            }
+
+            .s-title{
+                font-size:25px;
+            }
+
+            .logo img{
+                max-width:190px;
+            }
+        }
     </style>
     
 
@@ -95,18 +146,7 @@
 
 <?php $__env->startSection('main-content'); ?>
 
-    <div class="row" style="margin-top: 20px;">
-        <div class="s-title col-md-8 col-md-offset-2" style="padding-bottom: 10px;">
-        About Us
-        </div>
-        <div class="col-md-10 col-sm-10 col-md-offset-1">
-            <span class="about-us-desc">
-            Proactive, impactive, and now, interactive – Terrydale Live is the definitive next step on our journey to transform the way you do real estate. Our interactive marketplace provides live updates on the most competitive commercial financing options and structures consolidated from our network of private investors, real estate brokers, syndicators, REITS, institutional investors seeking terms and options on opportunities across asset classes, and other partners. See the information we’ve used to keep our fingers to the pulse of the market and close top level deals for clients across the U.S. Terrydale Live keeps you one step ahead of peers and competitors with an exclusive look at newly quoted opportunities for acquisitions and refinances before, during, and after they’ve hit the shelves.
-    A primary tenet of Terrydale Capital and its related services is the privacy and anonymity we offer our verified sources. Consequently, there will be cases where very limited information will accompany a transaction. For active transactions on which we have the authority to provide additional details, our ‘learn more’ feature can be used to connect you with a decision-maker (broker or owner) that will carry out the due diligence necessary to get you in front of a deal that may not have hit the market.
-    We are in the process of creating a private deal room for preferred investors that will have even more access to select opportunities with continuous updates. Stay tuned!
-            </span>
-        </div>
-    </div>
+    
     <section class='dynamic-widget float-in show-on-scroll'>
         <script LANGUAGE='JavaScript' type='text/javascript'
         SRC='https://www.thefinancials.com/ShowPanel.aspx?pid=TERRYDAL&amp;id=3611&amp;tilewidth=200&amp;bgcolor=FFFFFF&amp;fontcolor=000000&amp;bordercolor=222D37&amp;showvalueonrow2=true&amp;scrollSpeedFromZeroToTen=5&amp;showchange=true&amp;upchangecolor=025E11&amp;downchangecolor=990000&amp;nochangecolor=323232&amp;excludearrows=true&amp;adddividers=true&amp;bordercolor=FFFFFF&amp;nopreview=false&amp;showgraphsinnewwindow=true'>

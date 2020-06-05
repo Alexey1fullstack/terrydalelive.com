@@ -24,6 +24,10 @@
         .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus{
             outline: 0px auto -webkit-focus-ring-color; 
         }
+        
+        .head-title{
+            padding:18px;
+        }
 
         #loading_time{
             display: none;
@@ -33,8 +37,22 @@
                 width: 548px !important;
             }
             .about-us-desc{
-                font-size:18px;
-                margin-top:15px;
+                font-size: 22px;
+                display: block;
+                margin-top: 15px;
+                line-height: 21px;
+                padding-bottom: 150px;
+                color: white;
+            }
+
+            .hero {
+                min-height: 550px;
+                text-align: center;
+            }
+
+            .c-title {
+                font-size: 50px;
+                margin-top: 50px;
             }
         }
 
@@ -80,6 +98,39 @@
                 margin-top:15px;
             }
         }
+
+        @media (max-width: 481px){
+            .about-us-desc{
+                font-size:15px;
+                margin-top:15px;
+            }
+
+            .head-section{
+                min-height:800px;
+            }
+
+            .hero {
+                min-height: 550px;
+                text-align: center;
+            }
+
+            .head-title{
+                font-size:30px;
+            }
+
+            .c-title {
+                font-size: 50px;
+                margin-top: 0px;
+            }
+
+            .s-title{
+                font-size:25px;
+            }
+
+            .logo img{
+                max-width:190px;
+            }
+        }
     </style>
     
 
@@ -97,7 +148,7 @@
 
 @section('main-content')
 
-    <div class="row" style="margin-top: 20px;">
+    {{-- <div class="row" style="margin-top: 20px;">
         <div class="s-title col-md-8 col-md-offset-2" style="padding-bottom: 10px;">
         About Us
         </div>
@@ -108,7 +159,7 @@
     We are in the process of creating a private deal room for preferred investors that will have even more access to select opportunities with continuous updates. Stay tuned!
             </span>
         </div>
-    </div>
+    </div> --}}
     <section class='dynamic-widget float-in show-on-scroll'>
         <script LANGUAGE='JavaScript' type='text/javascript'
         SRC='https://www.thefinancials.com/ShowPanel.aspx?pid=TERRYDAL&amp;id=3611&amp;tilewidth=200&amp;bgcolor=FFFFFF&amp;fontcolor=000000&amp;bordercolor=222D37&amp;showvalueonrow2=true&amp;scrollSpeedFromZeroToTen=5&amp;showchange=true&amp;upchangecolor=025E11&amp;downchangecolor=990000&amp;nochangecolor=323232&amp;excludearrows=true&amp;adddividers=true&amp;bordercolor=FFFFFF&amp;nopreview=false&amp;showgraphsinnewwindow=true'>
