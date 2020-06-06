@@ -180,9 +180,9 @@
                         <li class="active ">
                             <a  href="#1" data-toggle="tab">All Cards</a>
                         </li>
-                        <li><a href="#2" data-toggle="tab">Refi Quote</a>
+                        <li><a href="#2" data-toggle="tab">Purchase Quote</a>
                         </li>
-                        <li><a href="#3" data-toggle="tab">Purchase Quote</a>
+                        <li><a href="#3" data-toggle="tab">Refi Quote</a>
                         </li>
                         <li><a href="#4" data-toggle="tab">Active on Market</a>
                         </li>
@@ -376,6 +376,93 @@
                         </div>
                         <div class="tab-pane" id="2">
                             {{-- Begin : slide 1 --}}
+                                <div class="ow-slide slideInUp animated  " id="purchase_slide">
+                                    <div class="owl-carousel  float-in show-on-scroll">
+                                        @if(!empty($active_cards))
+                                        @foreach ($active_cards as $row)
+                                            @if($row->category == 2)
+    
+                                                <div class="col-md-12">
+                                                    <div class="card opened-card">
+                                                        <div class="box-header ">
+                                                            
+                                                            <img class="card-icon" src="{{asset('public/assets/imgs/'.$row->get_assettype->name).'.jpg'}}" alt="ddd" width="50px">
+                                                            <span class="card-name card-type">{{$row->get_assettype->icon_name}}</span>
+                                                        </div>
+                                                        <div class="card-box"  id="item{{$row->id}}" data-card-state = "{{$row->value1}}" card-type="{{$row->get_assettype->icon_name}}">
+                                                        
+                                                            <div class="card-list">
+                                                                <div class="col-xs-6 text-center">
+                                                                    <span class="pre-key location">
+                                                                        Location:
+                                                                    </span>
+                                                                </div>
+                                                                <div class="col-xs-6 text-center  text-center">
+                                                                    <span class="card-name  location card-value1">{{$row->value1}}</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-list">
+                                                                <div class="col-xs-6 text-center">
+                                                                    <span class="pre-key">
+                                                                        Asking Price:
+                                                                    </span>
+                                                                </div>
+                                                                <div class="col-xs-6 text-center">
+                                                                    <span class="card-name  card-value2">{{$row->value2}}</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-list">
+                                                                <div class="col-xs-6 text-center">
+                                                                    <span class="pre-key">
+                                                                        EST. LTV:
+                                                                    </span>
+                                                                </div>
+                                                                <div class="col-xs-6 text-center">
+                                                                    <span class="card-name   card-value3">{{$row->value3}}%</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-list">
+                                                                <div class="col-xs-6 text-center">
+                                                                    <span class="pre-key">
+                                                                    CoC Return:
+                                                                    </span>
+                                                                </div>
+                                                                <div class="col-xs-6 text-center">
+                                                                    <span class="card-name   card-value4">{{$row->value4}}%</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-list">
+                                                                <div class="col-xs-6 text-center">
+                                                                    <span class="pre-key">
+                                                                        CAP Rate:
+                                                                    </span>
+                                                                </div>
+                                                                <div class="col-xs-6 text-center">
+                                                                    <span class="card-name   card-value5">{{$row->value5}}%</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="t-center">
+                                                            <button   class="modal_submit btn initial-btn contact_us">Contact Us</button>
+                                                        </div>
+                                                        
+                                                        <div class="reference-number">
+                                                            
+                                                            <div class="col-xs-12 text-center"><span>@if($row->category ==1)Refi Quote @elseif($row->category == 2) Purchase Quote @elseif($row->category == 3) Active on Market @endif #{{$row->id+1000}} </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+    
+                                        @endforeach
+                                        @endif
+                                    </div>
+                                </div>
+                                {{-- End : slide 1 --}}
+                            </div>
+                        <div class="tab-pane" id="3">
+                            {{-- Begin : slide 1 --}}
                             <div class="ow-slide slideInUp animated  " id="refi_slide">
                                 <div class="owl-carousel  float-in show-on-scroll">
                                     @if(!empty($active_cards))
@@ -460,94 +547,7 @@
                                 </div>
                             </div>
                             {{-- End : slide 1 --}}
-                        </div>
-                        <div class="tab-pane" id="3">
-                        {{-- Begin : slide 1 --}}
-                            <div class="ow-slide slideInUp animated  " id="purchase_slide">
-                                <div class="owl-carousel  float-in show-on-scroll">
-                                    @if(!empty($active_cards))
-                                    @foreach ($active_cards as $row)
-                                        @if($row->category == 2)
-
-                                            <div class="col-md-12">
-                                                <div class="card opened-card">
-                                                    <div class="box-header ">
-                                                        
-                                                        <img class="card-icon" src="{{asset('public/assets/imgs/'.$row->get_assettype->name).'.jpg'}}" alt="ddd" width="50px">
-                                                        <span class="card-name card-type">{{$row->get_assettype->icon_name}}</span>
-                                                    </div>
-                                                    <div class="card-box"  id="item{{$row->id}}" data-card-state = "{{$row->value1}}" card-type="{{$row->get_assettype->icon_name}}">
-                                                    
-                                                        <div class="card-list">
-                                                            <div class="col-xs-6 text-center">
-                                                                <span class="pre-key location">
-                                                                    Location:
-                                                                </span>
-                                                            </div>
-                                                            <div class="col-xs-6 text-center  text-center">
-                                                                <span class="card-name  location card-value1">{{$row->value1}}</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-list">
-                                                            <div class="col-xs-6 text-center">
-                                                                <span class="pre-key">
-                                                                    Asking Price:
-                                                                </span>
-                                                            </div>
-                                                            <div class="col-xs-6 text-center">
-                                                                <span class="card-name  card-value2">{{$row->value2}}</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-list">
-                                                            <div class="col-xs-6 text-center">
-                                                                <span class="pre-key">
-                                                                    EST. LTV:
-                                                                </span>
-                                                            </div>
-                                                            <div class="col-xs-6 text-center">
-                                                                <span class="card-name   card-value3">{{$row->value3}}%</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-list">
-                                                            <div class="col-xs-6 text-center">
-                                                                <span class="pre-key">
-                                                                CoC Return:
-                                                                </span>
-                                                            </div>
-                                                            <div class="col-xs-6 text-center">
-                                                                <span class="card-name   card-value4">{{$row->value4}}%</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-list">
-                                                            <div class="col-xs-6 text-center">
-                                                                <span class="pre-key">
-                                                                    CAP Rate:
-                                                                </span>
-                                                            </div>
-                                                            <div class="col-xs-6 text-center">
-                                                                <span class="card-name   card-value5">{{$row->value5}}%</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="t-center">
-                                                        <button   class="modal_submit btn initial-btn contact_us">Contact Us</button>
-                                                    </div>
-                                                    
-                                                    <div class="reference-number">
-                                                        
-                                                        <div class="col-xs-12 text-center"><span>@if($row->category ==1)Refi Quote @elseif($row->category == 2) Purchase Quote @elseif($row->category == 3) Active on Market @endif #{{$row->id+1000}} </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endif
-
-                                    @endforeach
-                                    @endif
-                                </div>
-                            </div>
-                            {{-- End : slide 1 --}}
-                        </div>
+                        </div>                        
                         <div class="tab-pane" id="4">
                         {{-- Begin : slide 1 --}}
                             <div class="ow-slide slideInUp animated  " id="active_slide">
