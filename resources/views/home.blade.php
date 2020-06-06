@@ -182,7 +182,7 @@
                         </li>
                         <li><a href="#2" data-toggle="tab">Purchase Quote</a>
                         </li>
-                        <li><a href="#3" data-toggle="tab">Refi Quote</a>
+                        <li><a href="#3" data-toggle="tab">Refinance Quote</a>
                         </li>
                         <li><a href="#4" data-toggle="tab">Active on Market</a>
                         </li>
@@ -380,12 +380,10 @@
                                     <div class="owl-carousel  float-in show-on-scroll">
                                         @if(!empty($active_cards))
                                         @foreach ($active_cards as $row)
-                                            @if($row->category == 2)
-    
+                                            @if($row->category == 2)    
                                                 <div class="col-md-12">
                                                     <div class="card opened-card">
                                                         <div class="box-header ">
-                                                            
                                                             <img class="card-icon" src="{{asset('public/assets/imgs/'.$row->get_assettype->name).'.jpg'}}" alt="ddd" width="50px">
                                                             <span class="card-name card-type">{{$row->get_assettype->icon_name}}</span>
                                                         </div>
@@ -404,27 +402,18 @@
                                                             <div class="card-list">
                                                                 <div class="col-xs-6 text-center">
                                                                     <span class="pre-key">
-                                                                        Asking Price:
+                                                                        Loan Amount:
                                                                     </span>
                                                                 </div>
                                                                 <div class="col-xs-6 text-center">
                                                                     <span class="card-name  card-value2">{{$row->value2}}</span>
                                                                 </div>
                                                             </div>
+                                                            
                                                             <div class="card-list">
                                                                 <div class="col-xs-6 text-center">
                                                                     <span class="pre-key">
-                                                                        EST. LTV:
-                                                                    </span>
-                                                                </div>
-                                                                <div class="col-xs-6 text-center">
-                                                                    <span class="card-name   card-value3">{{$row->value3}}%</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="card-list">
-                                                                <div class="col-xs-6 text-center">
-                                                                    <span class="pre-key">
-                                                                    CoC Return:
+                                                                    Interest Rate:
                                                                     </span>
                                                                 </div>
                                                                 <div class="col-xs-6 text-center">
@@ -434,7 +423,17 @@
                                                             <div class="card-list">
                                                                 <div class="col-xs-6 text-center">
                                                                     <span class="pre-key">
-                                                                        CAP Rate:
+                                                                        EST.LTV:
+                                                                    </span>
+                                                                </div>
+                                                                <div class="col-xs-6 text-center">
+                                                                    <span class="card-name   card-value3">{{$row->value3}}%</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-list">
+                                                                <div class="col-xs-6 text-center">
+                                                                    <span class="pre-key">
+                                                                        Cap Rate:
                                                                     </span>
                                                                 </div>
                                                                 <div class="col-xs-6 text-center">
@@ -491,11 +490,21 @@
                                                         <div class="card-list">
                                                             <div class="col-xs-6 text-center">
                                                                 <span class="pre-key">
-                                                                    Asking Price:
+                                                                    Loan Amount:
                                                                 </span>
                                                             </div>
                                                             <div class="col-xs-6 text-center">
                                                                 <span class="card-name  card-value2">{{$row->value2}}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-list">
+                                                            <div class="col-xs-6 text-center">
+                                                                <span class="pre-key">
+                                                                    Interest Rate:
+                                                                </span>
+                                                            </div>
+                                                            <div class="col-xs-6 text-center">
+                                                                <span class="card-name   card-value4">{{$row->value4}}%</span>
                                                             </div>
                                                         </div>
                                                         <div class="card-list">
@@ -508,20 +517,11 @@
                                                                 <span class="card-name   card-value3">{{$row->value3}}%</span>
                                                             </div>
                                                         </div>
+                                                        
                                                         <div class="card-list">
                                                             <div class="col-xs-6 text-center">
                                                                 <span class="pre-key">
-                                                                CoC Return:
-                                                                </span>
-                                                            </div>
-                                                            <div class="col-xs-6 text-center">
-                                                                <span class="card-name   card-value4">{{$row->value4}}%</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-list">
-                                                            <div class="col-xs-6 text-center">
-                                                                <span class="pre-key">
-                                                                    CAP Rate:
+                                                                    Amortization:
                                                                 </span>
                                                             </div>
                                                             <div class="col-xs-6 text-center">
@@ -588,16 +588,6 @@
                                                         <div class="card-list">
                                                             <div class="col-xs-6 text-center">
                                                                 <span class="pre-key">
-                                                                    EST. LTV:
-                                                                </span>
-                                                            </div>
-                                                            <div class="col-xs-6 text-center">
-                                                                <span class="card-name   card-value3">{{$row->value3}}%</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-list">
-                                                            <div class="col-xs-6 text-center">
-                                                                <span class="pre-key">
                                                                 Interest Rate:
                                                                 </span>
                                                             </div>
@@ -608,18 +598,24 @@
                                                         <div class="card-list">
                                                             <div class="col-xs-6 text-center">
                                                                 <span class="pre-key">
-                                                                    CAP Rate:
+                                                                    EST. LTV:
+                                                                </span>
+                                                            </div>
+                                                            <div class="col-xs-6 text-center">
+                                                                <span class="card-name   card-value3">{{$row->value3}}%</span>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="card-list">
+                                                            <div class="col-xs-6 text-center">
+                                                                <span class="pre-key">
+                                                                    Cap Rate:
                                                                 </span>
                                                             </div>
                                                             <div class="col-xs-6 text-center">
                                                                 <span class="card-name   card-value5">{{$row->value5}}%</span>
                                                             </div>
                                                         </div>
-                                                        
-                                                        
-                                                        
-                                                        
-                                                        
                                                     </div>
                                                     <div class="t-center">
                                                         <button   class="modal_submit btn initial-btn contact_us">Contact Us</button>
@@ -686,16 +682,6 @@
                                         <div class="card-list">
                                             <div class="col-xs-6 text-center">
                                                 <span class="pre-key">
-                                                    EST. LTV:
-                                                </span>
-                                            </div>
-                                            <div class="col-xs-6 text-center">
-                                                <span class="card-name   card-value3">{{$row->value3}}%</span>
-                                            </div>
-                                        </div>
-                                        <div class="card-list">
-                                            <div class="col-xs-6 text-center">
-                                                <span class="pre-key">
                                                 Interest Rate:
                                                 </span>
                                             </div>
@@ -705,10 +691,19 @@
                                         </div>
                                         <div class="card-list">
                                             <div class="col-xs-6 text-center">
+                                                <span class="pre-key">
+                                                    EST. LTV:
+                                                </span>
+                                            </div>
+                                            <div class="col-xs-6 text-center">
+                                                <span class="card-name   card-value3">{{$row->value3}}%</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-list">
+                                            <div class="col-xs-6 text-center">
                                                 <span class="pre-key ">
                                                     Other:
                                                 </span>
-                                                
                                             </div>
                                             <div class="col-xs-6 text-center">
                                                 <span class="card-name  card-value5">{{$row->description}}</span>
@@ -1035,7 +1030,7 @@
     
     function get_category(category_id){
         if(category_id == 1){
-            return "Refi Quote";
+            return "Refinance Quote";
         } else if(category_id == 2){
             return "Purchase Quote";
         } else {
@@ -1045,25 +1040,12 @@
     }
 
     function get_value1(category_id){
-        if(category_id == 1){
-            return "Asking Price";
-        } else if(category_id == 2){
-            return "Asking Price";
-        } else {
-            return "Loann Amount";
-        }
+        return "Loan Amount";
         
     }
 
-    function get_value2(category_id){
-        if(category_id == 1){
-            return "CoC Return";
-        } else if(category_id == 2){
-            return "CoC Return";
-        } else {
+    function get_value2(category_id){       
             return "Interest Rate";
-        }
-        
     }
 
     function getImageurl(card_img){
