@@ -7,6 +7,8 @@
 
     <!-- Owl Carousel -->
     <link rel="stylesheet" href="{{asset('public/assets/frontend/owl/owl.carousel.min.css')}}">
+    {{-- <!--begin::Global Theme Styles(used by all pages) -->
+		<link href="{{asset('public/assets/metronic/css/demo1/style.bundle.css')}}" rel="stylesheet" type="text/css" /> --}}
     <!-- Custom CSS -->
     <link href="{{asset('public/assets/frontend/style.css')}}" rel="stylesheet" type="text/css" />
     <style>
@@ -141,9 +143,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
     <script src="{{asset('public/assets/frontend/owl/owl.carousel.min.js')}}" type="text/javascript"></script>
 
+    {{-- sweetalert CSS--}}
+    
+    <link href="{{asset('public/assets/metronic/vendors/general/sweetalert2/dist/sweetalert2.css')}}" rel="stylesheet" type="text/css" />
+    
 @endsection
 
 @section('main-content')
@@ -740,30 +745,30 @@
                 <form action="">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <input class="form-control mainLoginInput" type="text" name="name" id=""
+                            <input class="form-control mainLoginInput" type="text" name="user_name" id="user_name"
                                 placeholder="&#61447; Your Name">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <input class="form-control mainLoginInput" type="text" name="name" id=""
+                            <input class="form-control mainLoginInput" type="text" name="user_email" id="user_email"
                                 placeholder="&#x2709; Your Email">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <input class="form-control mainLoginInput" type="text" name="name" id=""
+                            <input class="form-control mainLoginInput" type="text" name="user_phone" id="user_phone"
                                 placeholder="&#xf095; Phone Number">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <textarea class="form-control mainLoginInput" name="message" id="" cols="30"
+                            <textarea class="form-control mainLoginInput" name="user_message" id="user_message" cols="30"
                                 rows="10" placeholder="&#xf044; Write your message"></textarea>
                         </div>
                     </div>
                     <div class="t-center">
-                        <button type="submit" class="btn btn-submit g-btn">Send Message</button>
+                        <button type="submit"  class="send_message btn btn-submit g-btn">Send Message</button>
                     </div>
                 </form>
             </div>
@@ -871,13 +876,19 @@
 <script>
     $(document).on('click','.modal_submit',function(){
         $('#myModal').modal('hide'); $('#paper_form').trigger('click');
-        
+       
     });
 
     
 </script>
 <script>(function() { var script = document.createElement('script'); script.src = "https://paperform.co/__embed";document.body.appendChild(script); })()</script>
 <script src="{{asset('public/assets/frontend/script.js')}}"></script>
+{{-- Global vendor --}}
+<script src="{{asset('public/assets/metronic/vendors/general/jquery-form/dist/jquery.form.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('public/assets/metronic/vendors/general/jquery-validation/dist/jquery.validate.js')}}" type="text/javascript"></script>
+<script src="{{asset('public/assets/metronic/vendors/custom/js/vendors/jquery-validation.init.js')}}" type="text/javascript"></script>
+<script src="{{asset('public/assets/metronic/vendors/general/sweetalert2/dist/sweetalert2.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('public/assets/metronic/vendors/custom/js/vendors/sweetalert2.init.js')}}" type="text/javascript"></script>
 <script>
     setInterval(()=>{
         let loading_time = $('#loading_time').val();
@@ -1130,5 +1141,13 @@
         $("html, body").animate({ scrollTop: $(".schedule").position().top+650 }, "slow");
         return false;
     })
+
+    'use strict'
+    var functions = function(){
+        var submit_msg = function(){
+
+        }
+    }
 </script>
+
 @endsection

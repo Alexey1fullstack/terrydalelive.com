@@ -403,6 +403,10 @@
      margin-bottom: 30px;
  }
 
+ .active-card, .active-card .box-header{
+     border:2px solid #0C7E0C;
+ }
+
  .g-btn {
      padding: 12px 30px;
      color: #fff !important;

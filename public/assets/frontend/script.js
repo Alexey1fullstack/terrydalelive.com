@@ -2,6 +2,9 @@ $(document).ready(function () {
 
     $('#slide1').on('click',".card-box",function () {
         _this = $(this);
+        $('.card').removeClass('active-card');
+        _this.closest('.card').addClass('active-card');
+        
         let state = _this.attr('data-card-state');
         let type = _this.attr('card-type');
         let card_icon = _this.find('.card-icon').eq(0).attr('src');
@@ -24,6 +27,8 @@ $(document).ready(function () {
 
     $('#slide2').on('click',".card-box",function () {
         _this = $(this);
+        $('.card').removeClass('active-card');
+        _this.closest('.card').addClass('active-card');
         let state = _this.attr('data-card-state');
         let type = _this.attr('card-type');
         let card_icon = _this.find('.card-icon').eq(0).attr('src');
@@ -46,6 +51,8 @@ $(document).ready(function () {
     
     $('#refi_slide').on('click',".card-box",function () {
         _this = $(this);
+        $('.card').removeClass('active-card');
+        _this.closest('.card').addClass('active-card');
         let state = _this.attr('data-card-state');
         let type = _this.attr('card-type');
         let card_icon = _this.find('.card-icon').eq(0).attr('src');
@@ -68,6 +75,8 @@ $(document).ready(function () {
     
     $('#purchase_slide').on('click',".card-box",function () {
         _this = $(this);
+        $('.card').removeClass('active-card');
+        _this.closest('.card').addClass('active-card');
         let state = _this.attr('data-card-state');
         let type = _this.attr('card-type');
         let card_icon = _this.find('.card-icon').eq(0).attr('src');
@@ -90,6 +99,8 @@ $(document).ready(function () {
     
     $('#active_slide').on('click',".card-box",function () {
         _this = $(this);
+        $('.card').removeClass('active-card');
+        _this.closest('.card').addClass('active-card');
         let state = _this.attr('data-card-state');
         let type = _this.attr('card-type');
         let card_icon = _this.find('.card-icon').eq(0).attr('src');
@@ -112,6 +123,8 @@ $(document).ready(function () {
 
     $('.closed-slide').on('click',".card-box",function () {
         _this = $(this);
+        $('.card').removeClass('active-card');
+        _this.closest('.card').addClass('active-card');
         let state = _this.attr('data-card-state');
         let type = _this.attr('card-type');
         let card_icon = _this.find('.card-icon').eq(0).attr('src');
