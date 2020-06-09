@@ -879,6 +879,11 @@
 <script>
     $(document).on('click','.modal_submit',function(){
         $('#myModal').modal('hide'); $('#paper_form').trigger('click');
+
+
+
+
+
        
     });
 
@@ -1036,6 +1041,7 @@
     function currencyFormat(num) {
     return '$' + parseFloat(num).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
     }
+    
     
     function get_category(category_id){
         if(category_id == 1){

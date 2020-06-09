@@ -84,12 +84,12 @@
                             <th title="Field #1">Updated Time</th>                            
                             <th title="Field #3">Category</th>
                             <th title="Field #4">Type</th>
-                            <th title="Field #5">City and State</th>
-                            <th title="Field #6">Asking Price</th>
+                            <th title="Field #5">Location</th>
+                            <th title="Field #6">Loan Amount/Purchas Price</th>
                             <th title="Field #7">EST.LTV</th>
-                            <th title="Field #8">CoC Return</th>
+                            <th title="Field #8">Interest Rate</th>
                             <th title="Field #9">CAP Rate</th>
-                            <th title="Field #10">Description</th>
+                            <th title="Field #10">Other</th>
                             <th title="Field #11">Status</th>
                             <th title="Field #12">Action</th>
                         </tr>
@@ -159,15 +159,15 @@
                         <tr>
                             <th title="Field #0">#</th>
                             <th title="Field #2">Icon</th>
-                            <th title="Field #1">Created Time</th>                            
+                            <th title="Field #1">Updated Time</th>                            
                             <th title="Field #3">Category</th>
                             <th title="Field #4">Type</th>
-                            <th title="Field #5">City and State</th>
-                            <th title="Field #6">Asking Price</th>
+                            <th title="Field #5">Location</th>
+                            <th title="Field #6">Loan Amount/Purchas Price</th>
                             <th title="Field #7">EST.LTV</th>
-                            <th title="Field #8">CoC Return</th>
+                            <th title="Field #8">Interest Rate</th>
                             <th title="Field #9">CAP Rate</th>
-                            <th title="Field #10">Description</th>
+                            <th title="Field #10">Other</th>
                             <th title="Field #11">Status</th>
                             <th title="Field #12">Action</th>
                         </tr>
