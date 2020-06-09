@@ -744,27 +744,28 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <input class="form-control mainLoginInput" type="text" name="user_name" id="user_name"
-                                placeholder="&#61447; Your Name">
+                                placeholder="&#61447; Your Name" required>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <input class="form-control mainLoginInput" type="text" name="user_email" id="user_email"
-                                placeholder="&#x2709; Your Email">
+                            <input class="form-control mainLoginInput" type="email" name="user_email" id="user_email"
+                                placeholder="&#x2709; Your Email" required>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <input class="form-control mainLoginInput" type="text" name="user_phone" id="user_phone"
-                                placeholder="&#xf095; Phone Number">
+                                placeholder="&#xf095; Phone Number" required>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <textarea class="form-control mainLoginInput" name="user_message" id="user_message" cols="30"
-                                rows="10" placeholder="&#xf044; Write your message"></textarea>
+                                rows="10" placeholder="&#xf044; Write your message" required></textarea>
                         </div>
                     </div>
+                    <input type="hidden" id="cardid"  required>
                     <div class="t-center">
                         <button type="submit"  class="send_msg btn btn-submit g-btn">Send Message</button>
                     </div>
@@ -879,12 +880,6 @@
 <script>
     $(document).on('click','.modal_submit',function(){
         $('#myModal').modal('hide'); $('#paper_form').trigger('click');
-
-
-
-
-
-       
     });
 
     
@@ -1167,65 +1162,66 @@
     'use strict'
     var msg_functions = function(){
         var submit_msg = function(){
-            $('.send_msg').click(function(){
+            $('#msg_form').submit(function(event){
+                event.preventDefault();
                 var _this = $(this);
-                var form = _this.closest('form');
-                var inputs = $('input');
-                var btn = _this;
-                form.validate({
-                    rules: {
-                            user_name: {
-                                required:true,
-                            },
-                            user_email: {
-                                required:true,
-                            },
-                            user_phone:{
-                                required:true,
-
-                            },
-                            user_message:{
-                             
-                                required:true,
-                            },
-                        }
-                })
-
-                if(!form.valid()){
-                    return;
-                }
-                _this.addClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', true);
-                form.ajaxSubmit({
-                url: "{{url('/card/update')}}",
-                success: function(response, status, xhr, $form) {
-                    // similate 2s delay
-                    if(response.success){
-                        swal.fire("The Card has been updated!", "Please make sure it.","success");
-                        _this.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
-                        client_modal.modal('hide');
-                        form[0].reset();
-
-                        setTimeout(function(){ location.reload(true); }, 1000);
-
-                        //location.reload();
-                    } else {
-                        swal.fire("The client name existed with same name!","Please use another name.", "error");
-                        _this.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
-                        client_modal.modal('hide');
-                        form[0].reset();
-
-                        // showErrorMsg(form, 'danger', 'Incorrect username or password. Please try again.');
+                var fullname = $('#user_name').val();
+                var useremail = $('#user_email').val(); 
+                var phonenumber = $('#user_phone').val();
+                var message = $('#user_message').val();
+                var cardid = $('#cardid').val();
+                var cardid = cardid.substr(4,cardid.length);
+                jQuery.ajax({
+                    url: "{{ url('/send_msg') }}",
+                    method: 'post',
+                    data: {
+                        fullname: fullname,
+                        useremail: useremail,
+                        phonenumber: phonenumber,
+                        message: message,
+                        cardid: cardid,
+                    },
+                    success: function(result){
+                        
+                    },
+                    error: function(){
+                        console.log('No network!');
                     }
-                },
-                error: function() {
 
-                            btn.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
-                            swal.fire("The client name existed with same name!","Please use another name.", "error");
-                            //showErrorMsg(form, 'danger', 'Incorrect username or password. Please try again.');
-
-
-                    }
                 });
+                
+                // _this.addClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', true);
+                // form.ajaxSubmit({
+                // url: "{{url('/card/update')}}",
+                // success: function(response, status, xhr, $form) {
+                //     // similate 2s delay
+                //     if(response.success){
+                //         swal.fire("The Card has been updated!", "Please make sure it.","success");
+                //         _this.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
+                //         client_modal.modal('hide');
+                //         form[0].reset();
+
+                //         setTimeout(function(){ location.reload(true); }, 1000);
+
+                //         //location.reload();
+                //     } else {
+                //         swal.fire("The client name existed with same name!","Please use another name.", "error");
+                //         _this.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
+                //         client_modal.modal('hide');
+                //         form[0].reset();
+
+                //         // showErrorMsg(form, 'danger', 'Incorrect username or password. Please try again.');
+                //     }
+                // },
+                // error: function() {
+
+                //             btn.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
+                //             swal.fire("The client name existed with same name!","Please use another name.", "error");
+                //             //showErrorMsg(form, 'danger', 'Incorrect username or password. Please try again.');
+
+
+                //     }
+                // });
 
             })
         }

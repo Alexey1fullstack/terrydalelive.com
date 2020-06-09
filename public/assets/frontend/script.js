@@ -3,8 +3,7 @@ $(document).ready(function () {
     $('#slide1').on('click',".card-box",function () {
         _this = $(this);
         $('.card').removeClass('active-card');
-        _this.closest('.card').addClass('active-card');
-        
+        _this.closest('.card').addClass('active-card');        
         let state = _this.attr('data-card-state');
         let type = _this.attr('card-type');
         let card_icon = _this.find('.card-icon').eq(0).attr('src');
@@ -20,7 +19,7 @@ $(document).ready(function () {
         $('#modal_card_value2').text(value2);
         $('#modal_card_value3').text(value3);
         $('#modal_card_value4').text(value4);
-
+        $('#cardid').val(_this.attr('id'));
         $('#myModal').modal('show');
 
     });
@@ -44,6 +43,7 @@ $(document).ready(function () {
         $('#modal_card_value2').text(value2);
         $('#modal_card_value3').text(value3);
         $('#modal_card_value4').text(value4);
+        $('#cardid').val(_this.attr('id'));
 
         $('#myModal').modal('show');
 
@@ -68,7 +68,7 @@ $(document).ready(function () {
         $('#modal_card_value2').text(value2);
         $('#modal_card_value3').text(value3);
         $('#modal_card_value4').text(value4);
-
+        $('#cardid').val(_this.attr('id'));
         $('#myModal').modal('show');
 
     });
@@ -92,6 +92,7 @@ $(document).ready(function () {
         $('#modal_card_value2').text(value2);
         $('#modal_card_value3').text(value3);
         $('#modal_card_value4').text(value4);
+        $('#cardid').val(_this.attr('id'));
 
         $('#myModal').modal('show');
 
@@ -116,6 +117,7 @@ $(document).ready(function () {
         $('#modal_card_value2').text(value2);
         $('#modal_card_value3').text(value3);
         $('#modal_card_value4').text(value4);
+        $('#cardid').val(_this.attr('id'));
 
         $('#myModal').modal('show');
 
@@ -140,6 +142,7 @@ $(document).ready(function () {
         $('#modal_card_value2').text(value2);
         $('#modal_card_value3').text(value3);
         $('#modal_card_value4').text(value4);
+        $('#cardid').val(_this.attr('id'));
         $('#myModal').modal('show');
 
     });
