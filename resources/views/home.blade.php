@@ -134,8 +134,8 @@
             }
         }
     </style>
-    
-
+    {{-- sweetalert CSS--}}
+    <link href="{{asset('public/assets/metronic/vendors/general/sweetalert2/dist/sweetalert2.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('custom-js')
@@ -145,9 +145,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="{{asset('public/assets/frontend/owl/owl.carousel.min.js')}}" type="text/javascript"></script>
 
-    {{-- sweetalert CSS--}}
     
-    <link href="{{asset('public/assets/metronic/vendors/general/sweetalert2/dist/sweetalert2.css')}}" rel="stylesheet" type="text/css" />
     
 @endsection
 
@@ -742,7 +740,7 @@
                 <div class="s-title">
                     Schedule A Call Today
                 </div>
-                <form action="">
+                <form method="POST" id="msg_form">
                     <div class="col-md-4">
                         <div class="form-group">
                             <input class="form-control mainLoginInput" type="text" name="user_name" id="user_name"
@@ -768,17 +766,22 @@
                         </div>
                     </div>
                     <div class="t-center">
-                        <button type="submit"  class="send_message btn btn-submit g-btn">Send Message</button>
+                        <button type="submit"  class="send_msg btn btn-submit g-btn">Send Message</button>
                     </div>
                 </form>
             </div>
         </div>
         <div class="spacer50"></div>
     </section>
+    <section >
+        <!-- Calendly inline widget begin -->
+        <div class="calendly-inline-widget" data-url="https://calendly.com/webprofessional555/business-meeting" style="min-width:320px;height:630px;"></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
+        <!-- Calendly inline widget end -->
+    </section>
     <button data-paperform-id="32zwaona" data-popup-button="1"  id="paper_form"></button>
     <input type="text" id="loading_time" value="{{$loading_time}}">
 @endsection
-
 @section('modal')
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
@@ -883,12 +886,7 @@
 </script>
 <script>(function() { var script = document.createElement('script'); script.src = "https://paperform.co/__embed";document.body.appendChild(script); })()</script>
 <script src="{{asset('public/assets/frontend/script.js')}}"></script>
-{{-- Global vendor --}}
-<script src="{{asset('public/assets/metronic/vendors/general/jquery-form/dist/jquery.form.min.js')}}" type="text/javascript"></script>
-<script src="{{asset('public/assets/metronic/vendors/general/jquery-validation/dist/jquery.validate.js')}}" type="text/javascript"></script>
-<script src="{{asset('public/assets/metronic/vendors/custom/js/vendors/jquery-validation.init.js')}}" type="text/javascript"></script>
-<script src="{{asset('public/assets/metronic/vendors/general/sweetalert2/dist/sweetalert2.min.js')}}" type="text/javascript"></script>
-<script src="{{asset('public/assets/metronic/vendors/custom/js/vendors/sweetalert2.init.js')}}" type="text/javascript"></script>
+
 <script>
     setInterval(()=>{
         let loading_time = $('#loading_time').val();
@@ -1142,12 +1140,100 @@
         return false;
     })
 
-    'use strict'
-    var functions = function(){
-        var submit_msg = function(){
+</script>
 
+
+
+
+<!--begin:: Global Optional Vendors -->
+
+{{-- <script src="{{asset('public/assets/metronic/vendors/general/jquery-form/dist/jquery.form.min.js')}}" type="text/javascript"></script>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.js" type="text/javascript"></script> --}}
+{{-- <script src="{{asset('public/assets/metronic/vendors/custom/js/vendors/jquery-validation.init.js')}}" type="text/javascript"></script> --}}
+
+<script src="{{asset('public/assets/metronic/vendors/general/sweetalert2/dist/sweetalert2.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('public/assets/metronic/vendors/custom/js/vendors/sweetalert2.init.js')}}" type="text/javascript"></script>
+
+<!--end:: Global Optional Vendors -->
+
+<script>
+    'use strict'
+    var msg_functions = function(){
+        var submit_msg = function(){
+            $('.send_msg').click(function(){
+                var _this = $(this);
+                var form = _this.closest('form');
+                var inputs = $('input');
+                var btn = _this;
+                form.validate({
+                    rules: {
+                            user_name: {
+                                required:true,
+                            },
+                            user_email: {
+                                required:true,
+                            },
+                            user_phone:{
+                                required:true,
+
+                            },
+                            user_message:{
+                             
+                                required:true,
+                            },
+                        }
+                })
+
+                if(!form.valid()){
+                    return;
+                }
+                _this.addClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', true);
+                form.ajaxSubmit({
+                url: "{{url('/card/update')}}",
+                success: function(response, status, xhr, $form) {
+                    // similate 2s delay
+                    if(response.success){
+                        swal.fire("The Card has been updated!", "Please make sure it.","success");
+                        _this.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
+                        client_modal.modal('hide');
+                        form[0].reset();
+
+                        setTimeout(function(){ location.reload(true); }, 1000);
+
+                        //location.reload();
+                    } else {
+                        swal.fire("The client name existed with same name!","Please use another name.", "error");
+                        _this.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
+                        client_modal.modal('hide');
+                        form[0].reset();
+
+                        // showErrorMsg(form, 'danger', 'Incorrect username or password. Please try again.');
+                    }
+                },
+                error: function() {
+
+                            btn.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
+                            swal.fire("The client name existed with same name!","Please use another name.", "error");
+                            //showErrorMsg(form, 'danger', 'Incorrect username or password. Please try again.');
+
+
+                    }
+                });
+
+            })
         }
-    }
+
+        return {
+            init:function(){
+                submit_msg();
+            }
+        }
+    }();
+    
+    jQuery(document).ready(function(){
+        msg_functions.init();
+    });
 </script>
 
 @endsection
