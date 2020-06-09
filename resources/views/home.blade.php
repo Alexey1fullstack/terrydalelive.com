@@ -775,7 +775,7 @@
     </section>
     <section >
         <!-- Calendly inline widget begin -->
-        <div class="calendly-inline-widget" data-url="https://calendly.com/webprofessional555/business-meeting" style="min-width:320px;height:630px;"></div>
+        <div class="calendly-inline-widget" data-url="https://calendly.com/terrydalelive/30min?primary_color=097509" style="min-width:320px;height:630px;"></div>
         <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
         <!-- Calendly inline widget end -->
     </section>
