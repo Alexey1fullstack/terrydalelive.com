@@ -141,7 +141,7 @@ class CardController extends Controller
 
     public function messages(){
         $messages = MSG::orderby('updated_at','asc')->get();
-        return view('message.index',['messages' => $messages]);
+        return view('message.index',['messages' => $messages,'active'=>6]);
     }
 
     public function message_destroy(Request $request){
