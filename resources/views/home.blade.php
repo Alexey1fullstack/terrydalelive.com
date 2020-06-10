@@ -35,18 +35,31 @@
         #loading_time{
             display: none;
         }
-        @media (min-width: 768px){
+
+        .about-us-desc{
+            font-size: 22px;
+            display: block;
+            margin-top: 15px;
+            line-height: 21px;            
+            color: white;
+            line-height: 35px;
+        }
+
+        @media screen and (min-width:1600px) {
+            .about-us-desc{
+                margin-bottom: 330px;
+            }
+
+        }
+
+        
+
+
+        @media (max-width: 768px){
             .modal-dialog {
                 width: 548px !important;
             }
-            .about-us-desc{
-                font-size: 22px;
-                display: block;
-                margin-top: 15px;
-                line-height: 21px;
-                padding-bottom: 150px;
-                color: white;
-            }
+            
 
             .hero {
                 min-height: 550px;
@@ -63,6 +76,7 @@
             .about-us-desc{
                 font-size:16px;
                 margin-top:15px;
+                padding-bottom: 290px;
             }
         }
 
@@ -87,6 +101,7 @@
             .about-us-desc{
                 font-size:20px;
                 margin-top:15px;
+                
             }
         }
 
@@ -106,6 +121,7 @@
             .about-us-desc{
                 font-size:15px;
                 margin-top:15px;
+                margin-bottom: 30px;
             }
 
             .head-section{
