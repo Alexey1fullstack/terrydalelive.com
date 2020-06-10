@@ -6,7 +6,7 @@ use Exception;
 use App\User;
 use App\Card;
 use App\Cardlog;
-use App\MSG;
+use App\Msg;
 use App\Assettype;
 use Auth;
 use App\Setting;
