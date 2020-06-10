@@ -18,5 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::post('/card/sync',"CardsyncController@sync");
 
-
-Route::get('/findemail',"CardsyncController@findemail");
+//create new message
+Route::post('/send_msg','CardsyncController@send_msg');

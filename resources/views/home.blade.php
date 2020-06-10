@@ -11,6 +11,7 @@
 		<link href="{{asset('public/assets/metronic/css/demo1/style.bundle.css')}}" rel="stylesheet" type="text/css" /> --}}
     <!-- Custom CSS -->
     <link href="{{asset('public/assets/frontend/style.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('public/custom-css/loading.css')}}" rel="stylesheet" type="text/css" />
     <style>
         .category-tab a [aria-expanded= 'true']{
             font-weight: bold;
@@ -133,6 +134,24 @@
                 max-width:190px;
             }
         }
+
+        .swal2-popup.swal2-modal.swal2-show{
+            width: 430px;
+            height: 220px;
+            box-shadow: 2px 3px 11px 0px !important;
+        }
+
+        .swal2-title{
+        font-size:2em !important;
+        }
+
+        .swal2-content{
+        font-size:1.5em !important;
+        }
+
+        .swal2-confirm.swal2-styled{
+        font-size:1.3em !important;
+        }
     </style>
     {{-- sweetalert CSS--}}
     <link href="{{asset('public/assets/metronic/vendors/general/sweetalert2/dist/sweetalert2.css')}}" rel="stylesheet" type="text/css" />
@@ -150,6 +169,13 @@
 @endsection
 
 @section('main-content')
+    <!-- begin :: loading spinner -->
+    <div id="main-loading">
+        <div class="load_ctn" >
+            <div class="m-loader m-loader--primary" style="width: 30px;display: block;"></div>
+        </div>
+    </div>
+    <!-- end :: loading spinner -->
 
     {{-- <div class="row" style="margin-top: 20px;">
         <div class="s-title col-md-8 col-md-offset-2" style="padding-bottom: 10px;">
@@ -880,6 +906,7 @@
 <script>
     $(document).on('click','.modal_submit',function(){
         $('#myModal').modal('hide'); $('#paper_form').trigger('click');
+        
     });
 
     
@@ -1163,6 +1190,7 @@
     var msg_functions = function(){
         var submit_msg = function(){
             $('#msg_form').submit(function(event){
+                $('#main-loading').fadeIn();
                 event.preventDefault();
                 var _this = $(this);
                 var fullname = $('#user_name').val();
@@ -1170,9 +1198,14 @@
                 var phonenumber = $('#user_phone').val();
                 var message = $('#user_message').val();
                 var cardid = $('#cardid').val();
+                if(cardid == ""){
+                    $('#main-loading').fadeOut();
+                    swal.fire("The message can't be submitted!", "Please select a card.","error");
+                    return ;
+                }
                 var cardid = cardid.substr(4,cardid.length);
                 jQuery.ajax({
-                    url: "{{ url('/send_msg') }}",
+                    url: "{{ url('/api/send_msg') }}",
                     method: 'post',
                     data: {
                         fullname: fullname,
@@ -1180,48 +1213,23 @@
                         phonenumber: phonenumber,
                         message: message,
                         cardid: cardid,
+                        _token: "{{csrf_token()}}"
                     },
                     success: function(result){
                         
+                        $('#main-loading').fadeOut();
+                        swal.fire("The message has been submitted!", "we'll notice to your email soon.","success");
+                        $('#user_name').val('');
+                        $('#user_email').val(''); 
+                        $('#user_phone').val('');
+                        $('#user_message').val('');
+                        $('#cardid').val('');
                     },
                     error: function(){
-                        console.log('No network!');
+                        $('#main-loading').fadeOut();
+                        swal.fire("Network Error!", "Please check your network.","error");
                     }
-
                 });
-                
-                // _this.addClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', true);
-                // form.ajaxSubmit({
-                // url: "{{url('/card/update')}}",
-                // success: function(response, status, xhr, $form) {
-                //     // similate 2s delay
-                //     if(response.success){
-                //         swal.fire("The Card has been updated!", "Please make sure it.","success");
-                //         _this.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
-                //         client_modal.modal('hide');
-                //         form[0].reset();
-
-                //         setTimeout(function(){ location.reload(true); }, 1000);
-
-                //         //location.reload();
-                //     } else {
-                //         swal.fire("The client name existed with same name!","Please use another name.", "error");
-                //         _this.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
-                //         client_modal.modal('hide');
-                //         form[0].reset();
-
-                //         // showErrorMsg(form, 'danger', 'Incorrect username or password. Please try again.');
-                //     }
-                // },
-                // error: function() {
-
-                //             btn.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
-                //             swal.fire("The client name existed with same name!","Please use another name.", "error");
-                //             //showErrorMsg(form, 'danger', 'Incorrect username or password. Please try again.');
-
-
-                //     }
-                // });
 
             })
         }
@@ -1235,6 +1243,7 @@
     
     jQuery(document).ready(function(){
         msg_functions.init();
+        $('#main-loading').fadeOut();
     });
 </script>
 

@@ -6,6 +6,7 @@ use Exception;
 use App\User;
 use App\Card;
 use App\Cardlog;
+use App\MSG;
 use App\Assettype;
 use Auth;
 use App\Setting;
@@ -138,5 +139,14 @@ class CardController extends Controller
         return redirect()->back()->withSuccess('Sucess!')->with('alert','The card has been restored.');
     }
 
+    public function messages(){
+        $messages = MSG::orderby('updated_at','asc')->get();
+        return view('message.index',['messages' => $messages]);
+    }
+
+    public function message_destroy(Request $request){
+        $messages = MSG::destroy($request->record_id);
+        return response()->json(array('success'=>true));
+    }
 
 }

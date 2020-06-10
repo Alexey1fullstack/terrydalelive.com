@@ -34,6 +34,10 @@
                 @endif
 
                 @if(Auth::user()->member == 1)
+
+                <li class="kt-menu__item   kt-menu__item--submenu @if(isset($active) && $active == 6) kt-menu__item--active @endif " aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="{{url('/messages')}}" class="kt-menu__link"><i class="kt-menu__link-icon flaticon-email"></i><span class="kt-menu__link-text">Message</span></a>
+                </li>
+
                 <li class="kt-menu__item   kt-menu__item--submenu @if(isset($active) && $active == 4) kt-menu__item--active @endif " aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="{{url('/users')}}" class="kt-menu__link"><i class="kt-menu__link-icon fa fa-user"></i><span class="kt-menu__link-text">Users</span></a>
                 </li>
 

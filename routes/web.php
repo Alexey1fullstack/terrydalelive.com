@@ -65,9 +65,10 @@ Route::post('/password/update','ProfileController@password_update');
 //create a new user
 Route::post('/user/new_user','CardController@create_user');
 
+//view message list
+Route::get('/messages','CardController@messages');
 
-
-
+Route::post('/message/destroy','CardController@message_destroy');
 
 
 

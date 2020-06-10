@@ -79,8 +79,7 @@
 		<!-- end::Global Config -->
 
 	</body>
-	{{Auth::user()->permission}}
-	@if(Auth::user()->permission == 1)
+	@if(isset(Auth::user()->permission) &&  Auth::user()->permission == 1)
 	<script>
 		location.href('admin')
 	</script>

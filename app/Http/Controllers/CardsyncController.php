@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Exception;
 use App\User;
 use App\Card;
+use App\MSG;
 use App\Assettype;
 use Auth;
 use App\Setting;
@@ -65,43 +66,15 @@ class CardsyncController extends Controller
             return response()->json(array('changed'=>'No modification!','flag'=>false));
         }
     }
-    
- function findemail(Request $request){
-     
+
+    public function send_msg(Request $request){
        
-        $API_KEY = "lbNsRr1B-6smFMduC";
-        $SECRET_KEY ="UJmHVMofWwcZKz1r-E7hgewJ1FH4KZp8d";
-        $last_name = $request->last_name;
-        $first_name = $request->first_name;
-        $company_domain = $request->domain;
-        $url ="https://findthat.email/api_json/find_email";
-        $data = array(
-            'api_key'=>$API_KEY,
-            'secret_key' =>$SECRET_KEY,
-            'first_name' =>$first_name,
-            'last_name' =>$last_name,
-            'company_domain' =>$company_domain,
-        );
-        $payload = json_encode($data);
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            'Content-Type: application/json'
-        ));
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $response = curl_exec( $ch );
+        if(MSG::create($request->all())) {
+            return response()->json(array('success'=>true)); 
+        } else {
+            return response()->json(array('success'=>false));
+        };       
 
-        // If no response was received from PayPal there is no point parsing the response
-        if( ! $response )
-            die( 'Newwork Error: ' . curl_error( $ch ) . '(' . curl_errno( $ch ) . ')' );
-
-        curl_close( $ch );
-        $result =  json_decode($response,true);
-        return $result;
     }
-
-
-
-
 
 }
