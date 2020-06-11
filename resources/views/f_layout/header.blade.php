@@ -155,7 +155,15 @@
     }
 
     @media (max-width: 481px){
-        
+
+
+        .about-us-description{
+            text-align: justify;
+            padding: 12px 15px;
+            font-size: 15px;
+            line-height: 1.9;
+        }
+        }
 
 
         .f-right {
