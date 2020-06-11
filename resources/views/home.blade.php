@@ -734,7 +734,13 @@
     </section>
     @endif
 
-    <section >
+    <section  class='float-in show-on-scroll row'>
+        
+        <div style=' text-align:center;' class="row spacer50">
+            <div class="s-title col-md-6 col-md-offset-3">
+            Schedule a Meeting
+            </div>
+        </div>
         <!-- Calendly inline widget begin -->
         <div class="calendly-inline-widget" data-url="https://calendly.com/terrydalelive/30min?primary_color=097509" style="min-width:320px;height:630px;"></div>
         <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
