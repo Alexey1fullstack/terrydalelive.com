@@ -12,165 +12,123 @@
     <!-- Custom CSS -->
     <link href="{{asset('public/assets/frontend/style.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('public/custom-css/loading.css')}}" rel="stylesheet" type="text/css" />
-    <style>
-        .category-tab a [aria-expanded= 'true']{
-            font-weight: bold;
-        }
-
-        .category-tab a [aria-expanded= 'false']{
-            font-weight: bold;            
-        }
-        .category-tab a{
-            color:black;
-        }
-
-        .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus{
-            outline: 0px auto -webkit-focus-ring-color; 
-        }
-        
-        .head-title{
-            padding:18px;
-        }
-
-        #loading_time{
-            display: none;
-        }
-
-        .about-us-desc{
-            font-size: 22px;
-            display: block;
-            margin-top: 15px;
-            line-height: 21px;            
-            color: white;
-            line-height: 35px;
-        }
-
-        @media screen and (min-width:1600px) {
-            .about-us-desc{
-                margin-bottom: 330px;
-            }
-
-        }
-
-        
-
-
-        @media (max-width: 768px){
-            .modal-dialog {
-                width: 548px !important;
-            }
-            
-
-            .hero {
-                min-height: 550px;
-                text-align: center;
-            }
-
-            .c-title {
-                font-size: 50px;
-                margin-top: 50px;
-            }
-        }
-
-        @media (min-width: 1025px) and (max-width: 1280px) {
-            .about-us-desc{
-                font-size:16px;
-                margin-top:15px;
-                padding-bottom: 290px;
-            }
-        }
-
-        /* 
-        ##Device = Tablets, Ipads (portrait)
-        ##Screen = B/w 768px to 1024px
-        */
-
-        @media (min-width: 768px) and (max-width: 1024px) {
-            .about-us-desc{
-                font-size:20px;
-                margin-top:15px;
-            }
-        }
-
-        /* 
-        ##Device = Tablets, Ipads (landscape)
-        ##Screen = B/w 768px to 1024px
-        */
-
-        @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-            .about-us-desc{
-                font-size:20px;
-                margin-top:15px;
-                
-            }
-        }
-
-        /* 
-        ##Device = Low Resolution Tablets, Mobiles (Landscape)
-        ##Screen = B/w 481px to 767px
-        */
-
-        @media (min-width: 481px) and (max-width: 767px) {
-            .about-us-desc{
-                font-size:20px;
-                margin-top:15px;
-            }
-        }
-
-        @media (max-width: 481px){
-            .about-us-desc{
-                font-size:15px;
-                margin-top:15px;
-                margin-bottom: 30px;
-            }
-
-            .head-section{
-                min-height:800px;
-            }
-
-            .hero {
-                min-height: 550px;
-                text-align: center;
-            }
-
-            .head-title{
-                font-size:30px;
-            }
-
-            .c-title {
-                font-size: 50px;
-                margin-top: 0px;
-            }
-
-            .s-title{
-                font-size:25px;
-            }
-
-            .logo img{
-                max-width:190px;
-            }
-        }
-
-        .swal2-popup.swal2-modal.swal2-show{
-            width: 430px;
-            height: 220px;
-            box-shadow: 2px 3px 11px 0px !important;
-        }
-
-        .swal2-title{
-        font-size:2em !important;
-        }
-
-        .swal2-content{
-        font-size:1.5em !important;
-        }
-
-        .swal2-confirm.swal2-styled{
-        font-size:1.3em !important;
-        }
-    </style>
+    
     {{-- sweetalert CSS--}}
     <link href="{{asset('public/assets/metronic/vendors/general/sweetalert2/dist/sweetalert2.css')}}" rel="stylesheet" type="text/css" />
+
+    <style>
+        .input-group-addons{
+            margin: 0 auto;     
+            background-color: #fff;
+            position: relative;
+            text-align: left;
+            cursor: pointer;
+            border-radius: none;
+            backface-visibility: hidden;
+            transition: all 0.15s;
+            font-family: Lato, "Helvetica Neue", Helvetica, Roboto, sans-serif;
+            font-size: 17px;
+            line-height: 32px;
+            font-weight: 300;
+            color: rgba(107,117,88,1);
+            width:100%;
+        }
+
+        .input-group{
+            width:100%; 
+            padding-bottom:30px;
+        }
+
+        .form-controls{
+            display: block;
+            width:100%;
+            background-color: transparent;            
+            padding: 2px;
+            padding-top: 2px;
+            padding-right: 2px;
+            padding-bottom: 2px;
+            padding-left: 2px;
+            box-shadow: none;
+            min-height: 20px;
+            border: none;
+            font-size:20px;
+            color:rgb(132, 66, 6);
+            border-bottom: 1px solid rgba(230,230,230,0.8);
+        }
+
+        .form-controls:focus{
+            outline: none;
+            border: none;
+            border-bottom: 1px solid #bd6b05;
+            color:rgba(191,140,93,1);
+            
+        }
+
+        .information-input{
+            color:rgb(132, 66, 6);
+            
+            font-size:20px;
+        }
+
+        .information-input:focus{
+            color:rgba(191,140,93,1);
+        }
+
+        .submit_btn {
+            box-sizing: border-box;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-color: transparent;
+            border: 2px solid #166106;
+            border-radius: 0.6em;
+            color:#1f5603;
+            cursor: pointer;
+            display: -webkit-box;
+            font-size: 39px;
+            display: flex;
+            align-self: center;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1;
+            margin: 0px auto;
+            padding: 0.9em 2em;
+            text-decoration: none;
+            text-align: center;
+            text-transform: uppercase;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+        }
+        .submit_btn:hover,.submit_btn:focus,.submit_btn:active  {
+            color: white;
+            outline: 0;
+            box-shadow: 0 0 40px 40px #166106 inset
+        }
+
+        .first {
+            -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+            transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+        }
+
+        .modal-subtitle{
+            color:#225a10b3;
+            font-size:17px;
+        }
+
+        .modal-maintitle{
+            color:#2f5a01;
+            font-size:26px;
+        }
+
+        .pt-20{
+            padding-top:20px;
+        }
+
+        #send_ticket .modal-dialog{
+            width:90%;
+        }
+
+    </style>
 @endsection
 
 @section('custom-js')
@@ -775,54 +733,14 @@
         <div class="spacer50"></div>
     </section>
     @endif
-    <section class="schedule">
-        <div class="spacer50"></div>
-        <div class="container">
-            <div class="float-in show-on-scroll">
-                <div class="s-title">
-                    Schedule A Call Today
-                </div>
-                <form method="POST" id="msg_form">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <input class="form-control mainLoginInput" type="text" name="user_name" id="user_name"
-                                placeholder="&#61447; Your Name" required>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <input class="form-control mainLoginInput" type="email" name="user_email" id="user_email"
-                                placeholder="&#x2709; Your Email" required>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <input class="form-control mainLoginInput" type="text" name="user_phone" id="user_phone"
-                                placeholder="&#xf095; Phone Number" required>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <textarea class="form-control mainLoginInput" name="user_message" id="user_message" cols="30"
-                                rows="10" placeholder="&#xf044; Write your message" required></textarea>
-                        </div>
-                    </div>
-                    <input type="hidden" id="cardid"  required>
-                    <div class="t-center">
-                        <button type="submit"  class="send_msg btn btn-submit g-btn">Send Message</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="spacer50"></div>
-    </section>
+
     <section >
         <!-- Calendly inline widget begin -->
         <div class="calendly-inline-widget" data-url="https://calendly.com/terrydalelive/30min?primary_color=097509" style="min-width:320px;height:630px;"></div>
         <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
         <!-- Calendly inline widget end -->
     </section>
-    <button data-paperform-id="32zwaona" data-popup-button="1"  id="paper_form"></button>
+    {{-- <button data-paperform-id="32zwaona" data-popup-button="1"  id="paper_form"></button> --}}
     <input type="text" id="loading_time" value="{{$loading_time}}">
 @endsection
 @section('modal')
@@ -916,17 +834,76 @@
 
         </div>
     </div>
+
+
+    <div class="modal fade" id="send_ticket" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content" style="min-height:500px;">
+                <div class="m-close" data-dismiss="modal">
+                    ×
+                </div>
+                <div class="modal-body">
+                    <form id="msg_form">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <img class="_imgloaded" src="https://img.paperform.co/fetch/w_600,f_webp/https://s3-ap-southeast-2.amazonaws.com/paperform/u-33002/1/2019-09-13/tfd35k3/imageedit_2_2049578219.png" style="width: 240px; transition: width 0.3s ease 0s;">
+                                <h2 class="modal-maintitle">Interested in a Terrydale Live Opportunity?</h2>
+                                <h4 class="modal-subtitle">Submit a few details below and we'll be in contact today!</h4>
+                            </div>
+                            
+                            <div class="col-md-10 col-md-offset-1 pt-20">        
+                                <div class="input-group">
+                                    <span class="input-group-addons" >First Name*</span>
+                                    <input type="text" class="form-controls" id="firstname" aria-describedby="basic-addon3" required>
+                                </div>
+                            </div>   
+                            <div class="col-md-10 col-md-offset-1">        
+                                <div class="input-group">
+                                    <span class="input-group-addons" >Last Name*</span>
+                                    <input type="text" class="form-controls" id="lastname" aria-describedby="basic-addon3" required>
+                                </div>
+                            </div>   
+                            <div class="col-md-10 col-md-offset-1">    
+                                <div class="input-group">
+                                    <span class="input-group-addons" >Email*</span>
+                                    <input type="email" class="form-controls" id="useremail" aria-describedby="basic-addon3" required>
+                                </div>
+                            </div>   
+                            <div class="col-md-10 col-md-offset-1">    
+                                <div class="input-group">
+                                    <span class="input-group-addons">Contact*</span>
+                                    <input type="text" class="form-controls" id="usercontact" aria-describedby="basic-addon3" required>
+                                </div>
+                            </div>    
+                            <div class="col-md-10 col-md-offset-1">    
+                                <div class="input-group">
+                                    <span class="input-group-addons" >Additional Information*</span>
+                                    <textarea type="text" cols="10" rows="3" class="form-controls information-input" id="information" aria-describedby="basic-addon3">
+                                    </textarea>
+                                </div>
+                                <input type="hidden" id="cardid">
+                            </div> 
+                            <div class="col-md-10 col-md-offset-1">    
+                                <button style="submit" class="submit_btn first">Submit</button>
+                            </div> 
+
+                            <div class="col-md-10 col-md-offset-1">
+                                
+                            </div>
+                                
+                        </div>   
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
 @endsection
 
 @section('footer-js')
-<script>
-    $(document).on('click','.modal_submit',function(){
-        $('#myModal').modal('hide'); $('#paper_form').trigger('click');
-        
-    });
 
-    
-</script>
 <script>(function() { var script = document.createElement('script'); script.src = "https://paperform.co/__embed";document.body.appendChild(script); })()</script>
 <script src="{{asset('public/assets/frontend/script.js')}}"></script>
 
@@ -1179,9 +1156,9 @@
     }
 
     $('#schedule_call').on('click',function(){
-        event.preventDefault();
-        $("html, body").animate({ scrollTop: $(".schedule").position().top+650 }, "slow");
-        return false;
+        // event.preventDefault();
+        // $("html, body").animate({ scrollTop: $(".schedule").position().top+650 }, "slow");
+        // return false;
     })
 
 </script>
@@ -1204,30 +1181,41 @@
 <script>
     'use strict'
     var msg_functions = function(){
+
+        var modal_submit = function(){
+            $('.modal_submit').on('click', function(){
+                var cardid  = $(this).parent().prev().attr('id');
+                $('#cardid').val(cardid);
+                $('#firstname').val("");
+                $('#lastname').val('');
+                $('#useremail').val('');
+                $('#information').val('');
+                $('#usercontact').val('');
+                $('#send_ticket').modal('show');
+            });
+        }
+
         var submit_msg = function(){
             $('#msg_form').submit(function(event){
                 $('#main-loading').fadeIn();
                 event.preventDefault();
                 var _this = $(this);
-                var fullname = $('#user_name').val();
-                var useremail = $('#user_email').val(); 
-                var phonenumber = $('#user_phone').val();
-                var message = $('#user_message').val();
+                var firstname = $('#firstname').val();
+                var secondname = $('#lastname').val();
+                var useremail = $('#useremail').val(); 
+                var information = $('#information').val();
+                var usercontact = $('#usercontact').val();
                 var cardid = $('#cardid').val();
-                if(cardid == ""){
-                    $('#main-loading').fadeOut();
-                    swal.fire("The message can't be submitted!", "Please select a card.","error");
-                    return ;
-                }
                 var cardid = cardid.substr(4,cardid.length);
                 jQuery.ajax({
                     url: "{{ url('/api/send_msg') }}",
                     method: 'post',
                     data: {
-                        fullname: fullname,
+                        firstname: firstname,
+                        secondname:secondname,
                         useremail: useremail,
-                        phonenumber: phonenumber,
-                        message: message,
+                        information: information,
+                        usercontact: usercontact,
                         cardid: cardid,
                         _token: "{{csrf_token()}}"
                     },
@@ -1235,11 +1223,8 @@
                         
                         $('#main-loading').fadeOut();
                         swal.fire("The message has been submitted!", "we'll notice to your email soon.","success");
-                        $('#user_name').val('');
-                        $('#user_email').val(''); 
-                        $('#user_phone').val('');
-                        $('#user_message').val('');
-                        $('#cardid').val('');
+                        $('#send_ticket').modal('hide');
+
                     },
                     error: function(){
                         $('#main-loading').fadeOut();
@@ -1253,6 +1238,7 @@
         return {
             init:function(){
                 submit_msg();
+                modal_submit();
             }
         }
     }();

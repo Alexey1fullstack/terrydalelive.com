@@ -10,7 +10,7 @@ class MSG extends Model
     public $table = 'msg';
 
     public $fillable = [
-        'fullname','useremail','phonenumber','message', 'cardid',
+        'firstname','secondname','useremail','usercontact', 'information', 'cardid'
     ];    
 
     public $timestamps = true;

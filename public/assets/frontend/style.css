@@ -15,9 +15,9 @@
     border-style: double;
 }
 
-.btn.focus, .btn:focus, .btn:hover {
+/* .btn.focus, .btn:focus, .btn:hover {
     color:#fff !important;
-}
+} */
 
 .card-name{
 	display:block;
@@ -69,9 +69,7 @@
      font-family: Tahoma;
  }
 
- .f-right {
-     float: right;
- }
+
 
  .f-left {
      float: left;
@@ -106,7 +104,7 @@
  }
 
  .logo img {
-     max-width: 270px;
+     max-width: 230px;
  }
 
  .menu {
@@ -127,7 +125,7 @@
 
  .menu-items {
      font-size: 18px;
-     color: #a4a4a4;
+     color: white;
      text-decoration: none;
      /* min-height: 50px; */
      line-height: 80px;
@@ -135,13 +133,6 @@
      font-family: tahoma;
  }
 
- .menu-btn {
-     width: 180px;
-     height: 60px;
-     background: #005700;
-     color: #fff;
-     font-size: 16px;
- }
  
 @keyframes slideInUp {
   from {
@@ -190,9 +181,7 @@
  }
 
  .hero {
-     background-size: cover;
-     min-height: 482px;
-     padding-top: 10px;
+     
      background-image: url('../imgs/hero.png');
      background-repeat: no-repeat;
  }
@@ -621,6 +610,9 @@
  }
 
  @media screen and (max-width:1024px) {
+    .menu-items{
+        color: black;
+    }
 
      .cards {
          display: none;
@@ -629,6 +621,9 @@
 
 
  @media screen and (max-width: 767px) {
+    .menu-items{
+        color: black;
+    }
 
      .spacer150 {
          display: none;
@@ -721,6 +716,10 @@
  }
 
  @media screen and (max-width: 768px) {
+
+    .menu-items{
+        color: black;
+    }
      .menu a {
          display: none;
      }
