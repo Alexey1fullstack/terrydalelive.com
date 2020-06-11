@@ -267,7 +267,7 @@
 Our Interactive marketplace provides live updates on the most competitive commercial financing<br>
 options & structures consolidated from our network...
                 </span>
-                <button class="btn readmore-btn">Read More</button>
+                 <a href="{{url('/about')}}"><button class="btn readmore-btn" >Read More</button></a>
                 
             </div>
         </div>
