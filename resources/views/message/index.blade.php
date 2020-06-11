@@ -82,8 +82,8 @@
                             <th title="Field #0">Created Time</th>
                             <th title="Field #2">Full Name</th>
                             <th title="Field #1">Email</th>                            
-                            <th title="Field #3">Phone Number</th>
-                            <th title="Field #4">Message</th>
+                            <th title="Field #3">Contact</th>
+                            <th title="Field #4">Addtional Information</th>
                             <th title="Field #5">Card ID</th>
                             <th title="Field #6"></th>
                         </tr>
@@ -93,10 +93,10 @@
                             @foreach($messages as $row)                               
                                 <tr>
                                     <td>{{date('m/d/Y H:i:s',strtotime($row->updated_at))}}</td>   
-                                    <td>{{$row->fullname}}</td>   
+                                    <td>{{$row->firstname}} {{$row->secondname}}</td>   
                                     <td>{{$row->useremail}}</td>
-                                    <td>{{$row->phonenumber}}</td>
-                                    <td >{{$row->message}}</td>
+                                    <td >{{$row->usercontact}}</td>
+                                    <td >{{$row->information}}</td>
                                     <td>{{$row->cardid+1000}}</td>
                                     <td class="text-left">                                        
                                         <a onclick="deleted_record({{$row->id}})" id="{{'sel'.$row->id}}" class="card_delete btn btn-sm btn-clean btn-icon btn-icon-md " title="Delete">
