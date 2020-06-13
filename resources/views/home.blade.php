@@ -199,95 +199,88 @@
                                     @if(!empty($cards1))
                                     @foreach ($cards1 as $row)
 
-                                            <div class="col-md-12">
-                                                <div class="card opened-card" >
-                                                    <div class="box-header ">
-                                                        
-                                                        <img class="card-icon" src="{{asset('public/assets/imgs/'.$row->get_assettype->name).'.jpg'}}" alt="ddd" width="50px">
-                                                        <span class="card-name card-type">{{$row->get_assettype->icon_name}}</span>
-                                                    </div>
-                                                    <div class="card-box"  id="item{{$row->id}}" data-card-state = "{{$row->value1}}" card-type="{{$row->get_assettype->icon_name}}">
+                                        <div class="col-md-12">
+                                            <div class="card opened-card" >
+                                                <div class="box-header ">
                                                     
-                                                        <div class="card-list ">
-                                                            <div class="col-xs-6 text-center">
-                                                                <span class="pre-key location">
-                                                                    Location:
-                                                                </span>
-                                                            </div>
-                                                            <div class="col-xs-6 text-center  text-center">
-                                                                <span class="card-name location card-value1">{{$row->value1}}</span>
-                                                            </div>
+                                                    <img class="card-icon" src="{{asset('public/assets/imgs/'.$row->get_assettype->name).'.jpg'}}" alt="ddd" width="50px">
+                                                    <span class="card-name card-type">{{$row->get_assettype->icon_name}}</span>
+                                                </div>
+                                                <div class="card-box"  id="item{{$row->id}}" data-card-state = "{{$row->value1}}" card-type="{{$row->get_assettype->icon_name}}">
+                                                
+                                                    <div class="card-list ">
+                                                        <div class="col-xs-6 text-center">
+                                                            <span class="pre-key location">
+                                                                Location:
+                                                            </span>
                                                         </div>
-                                                        <div class="card-list">
-                                                            <div class="col-xs-6 text-center">
-                                                                <span class="pre-key">
-                                                                    @if($row->category ==1)
-                                                                        Asking Price
-                                                                    @elseif($row->category == 2) 
-                                                                        Asking Price
-                                                                    @elseif($row->category == 3) 
-                                                                        Purchase Price
-                                                                    @endif 
-                                                                </span>
-                                                            </div>
-                                                            <div class="col-xs-6 text-center">
-                                                                <span class="card-name  card-value2">{{$row->value2}}</span>
-                                                            </div>
+                                                        <div class="col-xs-6 text-center  text-center">
+                                                            <span class="card-name location card-value1">{{$row->value1}}</span>
                                                         </div>
-                                                        <div class="card-list">
-                                                            <div class="col-xs-6 text-center">
-                                                                <span class="pre-key">
-                                                                    EST. LTV:
-                                                                </span>
-                                                            </div>
-                                                            <div class="col-xs-6 text-center">
-                                                                <span class="card-name   card-value3">{{$row->value3}}%</span>
-                                                            </div>
+                                                    </div>
+                                                    <div class="card-list">
+                                                        <div class="col-xs-6 text-center">
+                                                            <span class="pre-key">
+                                                                Loan Amount
+                                                            </span>
                                                         </div>
-                                                        <div class="card-list">
-                                                            <div class="col-xs-6 text-center">
-                                                                <span class="pre-key">
-                                                                    @if($row->category ==1)
-                                                                    CoC Return
-                                                                    @elseif($row->category == 2) 
-                                                                        CoC Return
-                                                                    @elseif($row->category == 3) 
-                                                                        Interest Rate
-                                                                    @endif 
-                                                                </span>
-                                                            </div>
-                                                            <div class="col-xs-6 text-center">
-                                                                <span class="card-name   card-value4">{{$row->value4}}%</span>
-                                                            </div>
+                                                        <div class="col-xs-6 text-center">
+                                                            <span class="card-name  card-value2">{{$row->value2}}</span>
                                                         </div>
-                                                        <div class="card-list">
-                                                            <div class="col-xs-6 text-center">
-                                                                <span class="pre-key">
+                                                    </div>
+                                                    <div class="card-list">
+                                                        <div class="col-xs-6 text-center">
+                                                            <span class="pre-key">
+                                                                Interest Rate
+                                                            </span>
+                                                        </div>
+                                                        <div class="col-xs-6 text-center">
+                                                            <span class="card-name   card-value4">{{$row->value4}}%</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-list">
+                                                        <div class="col-xs-6 text-center">
+                                                            <span class="pre-key">
+                                                                EST. LTV:
+                                                            </span>
+                                                        </div>
+                                                        <div class="col-xs-6 text-center">
+                                                            <span class="card-name   card-value3">{{$row->value3}}%</span>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="card-list">
+                                                        <div class="col-xs-6 text-center">
+                                                            <span class="pre-key">
+                                                                @if($row->category == 1)
+                                                                    Amortization
+                                                                @else
                                                                     CAP Rate:
-                                                                </span>
-                                                            </div>
-                                                            <div class="col-xs-6 text-center">
-                                                                <span class="card-name   card-value5">{{$row->value5}}%</span>
-                                                            </div>
+                                                                @endif
+                                                            </span>
                                                         </div>
-                                                    </div>
-                                                    <div class="t-center">
-                                                        <button   class="modal_submit btn initial-btn contact_us">Contact Us</button>
-                                                    </div>
-                                                    <div class="reference-number">
-                                                        <div class="col-xs-12 text-center"><span>
-                                                            @if($row->category ==1)
-                                                                Refi Quote
-                                                            @elseif($row->category == 2) 
-                                                                Purchase Quote 
-                                                            @elseif($row->category == 3) 
-                                                                Active on Market 
-                                                            @endif 
-                                                            #{{$row->id+1000}} </span>
+                                                        <div class="col-xs-6 text-center">
+                                                            <span class="card-name   card-value5">{{$row->value5}}%</span>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="t-center">
+                                                    <button   class="modal_submit btn initial-btn contact_us">Contact Us</button>
+                                                </div>
+                                                <div class="reference-number">
+                                                    <div class="col-xs-12 text-center"><span>
+                                                        @if($row->category ==1)
+                                                            Refi Quote
+                                                        @elseif($row->category == 2) 
+                                                            Purchase Quote 
+                                                        @elseif($row->category == 3) 
+                                                            Active on Market 
+                                                        @endif 
+                                                        #{{$row->id+1000}} </span>
+                                                    </div>
+                                                </div>
                                             </div>
+                                        </div>
                                     @endforeach
                                     @endif
                                 </div>
@@ -301,15 +294,15 @@
                                     @foreach ($cards2 as $row)
 
                                         <div class="col-md-12">
-                                            <div class="card opened-card">
+                                            <div class="card opened-card" >
                                                 <div class="box-header ">
                                                     
                                                     <img class="card-icon" src="{{asset('public/assets/imgs/'.$row->get_assettype->name).'.jpg'}}" alt="ddd" width="50px">
                                                     <span class="card-name card-type">{{$row->get_assettype->icon_name}}</span>
                                                 </div>
-                                                <div class="card-box"  id="item{{$row->id}}" data-card-state = "{{$row->value1}}"  card-type="{{$row->get_assettype->icon_name}}">
-                                                    
-                                                    <div class="card-list">
+                                                <div class="card-box"  id="item{{$row->id}}" data-card-state = "{{$row->value1}}" card-type="{{$row->get_assettype->icon_name}}">
+                                                
+                                                    <div class="card-list ">
                                                         <div class="col-xs-6 text-center">
                                                             <span class="pre-key location">
                                                                 Location:
@@ -322,11 +315,21 @@
                                                     <div class="card-list">
                                                         <div class="col-xs-6 text-center">
                                                             <span class="pre-key">
-                                                                Asking Price:
+                                                                Loan Amount
                                                             </span>
                                                         </div>
                                                         <div class="col-xs-6 text-center">
                                                             <span class="card-name  card-value2">{{$row->value2}}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-list">
+                                                        <div class="col-xs-6 text-center">
+                                                            <span class="pre-key">
+                                                                Interest Rate
+                                                            </span>
+                                                        </div>
+                                                        <div class="col-xs-6 text-center">
+                                                            <span class="card-name   card-value4">{{$row->value4}}%</span>
                                                         </div>
                                                     </div>
                                                     <div class="card-list">
@@ -339,20 +342,15 @@
                                                             <span class="card-name   card-value3">{{$row->value3}}%</span>
                                                         </div>
                                                     </div>
+                                                    
                                                     <div class="card-list">
                                                         <div class="col-xs-6 text-center">
                                                             <span class="pre-key">
-                                                            CoC Return:
-                                                            </span>
-                                                        </div>
-                                                        <div class="col-xs-6 text-center">
-                                                            <span class="card-name   card-value4">{{$row->value4}}%</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-list">
-                                                        <div class="col-xs-6 text-center">
-                                                            <span class="pre-key">
-                                                                CAP Rate:
+                                                                @if($row->category == 1)
+                                                                    Amortization
+                                                                @else
+                                                                    CAP Rate:
+                                                                @endif
                                                             </span>
                                                         </div>
                                                         <div class="col-xs-6 text-center">
@@ -361,11 +359,18 @@
                                                     </div>
                                                 </div>
                                                 <div class="t-center">
-                                                    <button    class="btn initial-btn modal_submit">Contact Us</button>
+                                                    <button   class="modal_submit btn initial-btn contact_us">Contact Us</button>
                                                 </div>
                                                 <div class="reference-number">
-                                                    <div class="col-xs-12 text-center">
-                                                        <span>@if($row->category ==1)Refi Quote @elseif($row->category == 2) Purchase Quote @elseif($row->category == 3) Active on Market @endif #{{$row->id+1000}} </span>
+                                                    <div class="col-xs-12 text-center"><span>
+                                                        @if($row->category ==1)
+                                                            Refi Quote
+                                                        @elseif($row->category == 2) 
+                                                            Purchase Quote 
+                                                        @elseif($row->category == 3) 
+                                                            Active on Market 
+                                                        @endif 
+                                                        #{{$row->id+1000}} </span>
                                                     </div>
                                                 </div>
                                             </div>

@@ -1,4 +1,8 @@
 <style>
+    /* header{
+        border-bottom: 1px solid #b3b3b36b;
+    } */
+
     .category-tab a [aria-expanded= 'true']{
         font-weight: bold;
     }
@@ -162,7 +166,6 @@
             padding: 12px 15px;
             font-size: 15px;
             line-height: 1.9;
-        }
         }
 
 

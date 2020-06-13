@@ -433,7 +433,29 @@
                     responsivePriority: 2,
                     targets: -1
                 }
-                ]
+                ],
+                initComplete: function () {
+                this.api().columns([3,4,5]).every( function () {
+                    var column = this;
+                    var select = $('<select><option value="">Show all</option></select>')
+                        .appendTo( $(column.footer()).empty() )
+                        .on( 'change', function () {
+                            var val = $.fn.dataTable.util.escapeRegex(
+                                $(this).val()
+                            );
+
+                            column
+                                .search( val ? '^'+val+'$' : '', true, false )
+                                .draw();
+                        } );
+
+                    column.data().unique().sort().each( function ( d, j ) {
+                        var val = $('<div/>').html(d).text();
+                        select.append( '<option value="' + val + '">' + val + '</option>' );
+                        // select.append( '<option value="'+d+'">'+d+'</option>' )
+                    } );
+                } );
+                }
             });
 
         $(".dataTables_filter input")
